@@ -7,10 +7,10 @@ class Exercise(models.Model):
     description = models.TextField("description");
     pub_date = models.DateField("fecha creacion", auto_now = False, auto_now_add = True);
     out_date = models.DateField("fecha actualizacion", auto_now = True, auto_now_add = False);
-    median = models.FloatField("guarda la media");
-    mean = models.FloatField("guarda la mediana");
-    mode = models.FloatField("guarda la moda");
-    trimmed_mean = models.FloatField("guarda media recortada");
+    median = models.FloatField("guarda la media", default = 0.0);
+    mean = models.FloatField("guarda la mediana", default = 0.0);
+    mode = models.FloatField("guarda la moda", default = 0.0);
+    trimmed_mean = models.FloatField("guarda media recortada", default = 0.0);
     trim_percentage = models.IntegerField("guarda el pocentaje media recortada");
 
 

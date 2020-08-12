@@ -1,0 +1,10 @@
+{% extends "main/base.html" %}
+
+{% block title %} Create | ML{% endblock%}
+{% block content %}
+  <form class="" action="/creacion/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="button">Crear</button>
+  </form>
+{% endblock%}

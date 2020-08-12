@@ -1,0 +1,2 @@
+-1 entender form
+-2 validar el porcentage de media reducida (0-100)%
