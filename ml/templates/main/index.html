@@ -4,6 +4,22 @@
 {% block content %}
   {% if posters %}
 
+
+
+    {% for p in posters %}
+    <form class="" action="/modificacion/" method="post">
+      {% csrf_token %}
+      <div class="exercise_box">
+        <h2> {{p.name}} </h2>
+        <p> {{p.description}}</p>
+        <input type="hidden" value="{{p.id}}" name="num_exercise">
+        <button type="submit" value = "1" name ='choice'>Modificar</button>
+        <button type="submit" value = "0" name ='choice'>Eliminar</button>
+      </div>
+    </form>
+    {% endfor %}
+
+
   {% else %}
     <p>No hay ningun Ejercicio</p>
   {% endif %}

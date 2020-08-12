@@ -7,7 +7,7 @@ from .form import ExerciseForm;
 def index(request):
     posters = Exercise.objects.all();
     context = {"title": "Creacion", 'posters': posters}
-    return render(request, "main/index.html");
+    return render(request, "main/index.html", context);
 
 def create(request):
     posters = Exercise.objects.all();
@@ -24,10 +24,20 @@ def create(request):
 
     return render(request, "main/create.html", context);
 
-def modify(request):
-    context = {"title": "Modificar"}
-    return render(request, "main/crud.html", context);
+def modify_delete(request):
+    if request.method == 'GET':
+        pass
+    elif request.method == 'POST':
+        e_id = int(request.POST["num_exercise"]);
+        exercise = Exercise.objects.get(id = e_id);
+        print(exercise);
 
-def delete(request):
-    context = {"title": "Eliminar"}
+    if request.POST["choice"] == "1":
+        redirect("modificar");
+    else:
+        exercise.delete();
+        return redirect("home");
+
+
+    context = {"title": "Modificar"}
     return render(request, "main/crud.html", context);
