@@ -1,13 +1,13 @@
 {% extends "main/base.html" %}
 
-{% block title %}Inicio | ML{% endblock%}
+{% block title %} Inicio | ML{% endblock%}
 {% block content %}
   {% if posters %}
 
 
 
     {% for p in posters %}
-    <form class="" action="/modificacion/" method="post">
+    <form class="" action="/modificar/" method="post">
       {% csrf_token %}
       <div class="exercise_box">
         <h2> {{p.name}} </h2>
