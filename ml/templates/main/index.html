@@ -6,12 +6,22 @@
 
 
 
+
+  trim_percentage
+
     {% for p in posters %}
     <form class="" action="/modificar/" method="post">
       {% csrf_token %}
       <div class="exercise_box">
         <h2> {{p.name}} </h2>
-        <p> {{p.description}}</p>
+        <p>{{p.description}}</p>
+        <ul>
+
+          <li>{{p.median}}</li>
+          <li>{{p.mean}}</li>
+          <li>{{p.mode}}</li>
+          <li>{{p.trimmed_mean}}</li>
+        </ul>
         <input type="hidden" value="{{p.id}}" name="num_exercise">
         <button type="submit" value = "1" name ='choice'>Modificar</button>
         <button type="submit" value = "0" name ='choice'>Eliminar</button>

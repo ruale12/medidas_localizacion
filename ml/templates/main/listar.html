@@ -2,5 +2,29 @@
 
 {% block title %} {{title}} | ML {% endblock%}
 {% block content %}
-  <p>lista</p>
+  {% if posters %}
+
+
+  <table>
+
+  {% for p in posters %}
+    <tr>
+      <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+
+      <td>
+        <form class="" action="/modificar/" method="post">
+          {% csrf_token %}
+          <input type="hidden" value="{{p.id}}" name="num_exercise">
+          <button type="submit" value = {{valor}} name ='choice'>{{ boton }}</button>
+        </form>
+      </td>
+
+    </tr>
+  {% endfor %}
+  </table>
+
+  {% else %}
+    <p>No hay ningun Ejercicio</p>
+  {% endif %}
 {% endblock%}
